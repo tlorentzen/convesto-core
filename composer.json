@@ -1,0 +1,37 @@
+{
+    "name": "convesto/core",
+    "description": "This library manages the synchronization between the Convesto Application admin and application.",
+    "keywords": [],
+    "type": "library",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Lorentzen",
+            "email": "thomas@tlorentzen.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*",
+        "ext-curl": "*"
+    },
+    "autoload": {
+       "psr-4": {
+            "convesto\\core\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "convesto\\core\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "CoreServiceProvider"
+            ]
+        }
+    }
+}
