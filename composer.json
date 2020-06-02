@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-              "CoreServiceProvider"
+              "convesto\\core\\CoreServiceProvider"
             ]
         }
     }
