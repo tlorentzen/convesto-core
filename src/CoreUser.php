@@ -35,4 +35,8 @@ abstract class CoreUser extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function gravatar($size=50){
+        return 'https://www.gravatar.com/avatar/'.md5( strtolower( trim( $this->email ) ) )."?s=$size&d=mp&r=g";
+    }
 }
