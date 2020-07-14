@@ -17,7 +17,7 @@ class CreateResourcesTable extends Migration
             $table->id();
             $table->string('name');
             $table->enum('type', ['building', 'room']);
-            $table->bigInteger('parent')->unsigned()->default(0);
+            $table->bigInteger('parent_id')->unsigned()->default(0);
             $table->bigInteger('organization_id')->unsigned();
             $table->timestamps();
 
