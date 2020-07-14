@@ -23,7 +23,7 @@ class CreateTagsTable extends Migration
             $table->timestamps();
 
             $table->index('name');
-            $table->unique(['organization_id', 'group_id', 'parent', 'name'], 'unique_tag_index');
+            $table->unique(['organization_id', 'group_id', 'parent_id', 'name'], 'unique_tag_index');
 
             $table->foreign('organization_id')
                 ->references('id')
