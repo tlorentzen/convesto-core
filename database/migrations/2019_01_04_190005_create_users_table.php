@@ -25,14 +25,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('internal')->default(false);
             $table->jsonb('options');
-            $table->bigInteger('resource_id')->unsigned()->default(null);
+            $table->bigInteger('resource_id')->unsigned()->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('resource_id')
+                ->nullable()
                 ->references('id')
-                ->on('resources')
-                ->nullable();
+                ->on('resources');
         });
     }
 
