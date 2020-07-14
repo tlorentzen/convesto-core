@@ -16,7 +16,11 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->bigInteger('organization_id')->unsigned();
             $table->timestamps();
+
+            $table->unique(['organization_id', 'name'], 'unique_group');
+            $table->foreign('organization_id')->references('id')->on('organizations');
         });
     }
 

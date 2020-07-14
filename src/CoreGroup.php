@@ -9,4 +9,9 @@ abstract class CoreGroup extends Model
     public function users(){
         return $this->belongsToMany('App\User', 'group_users', 'user_id', 'group_id');
     }
+
+    public function organization()
+    {
+        return $this->belongsTo('App\Organization', 'id', 'organization_id');
+    }
 }

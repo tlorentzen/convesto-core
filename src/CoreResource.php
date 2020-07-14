@@ -12,4 +12,9 @@ abstract class CoreResource extends Model
         return $this->hasMany('App\User', 'resource_id', 'id');
     }
 
+    public function organization()
+    {
+        return $this->belongsTo('App\Organization', 'organization_id', 'id');
+    }
+
 }
