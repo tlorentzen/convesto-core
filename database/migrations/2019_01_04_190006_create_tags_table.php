@@ -14,17 +14,20 @@ class CreateTagsTable extends Migration
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('company_id')->unsigned()->default(0);
-            $table->bigInteger('parent_id')->unsigned();
-            $table->bigInteger('department_id')->unsigned()->default(0);
+            $table->id();
             $table->string('name');
-            $table->string('color', 30)->default('#FFFFFF');
-            $table->jsonb('data');
+            $table->string('color', 10)->default('#ffffff');
+            $table->bigInteger('organization_id')->unsigned();
+            $table->bigInteger('group_id')->unsigned()->default(0);
+            $table->bigInteger('parent')->unsigned()->default(0);
             $table->timestamps();
 
-            $table->unique(['company_id', 'parent_id', 'name']);
             $table->index('name');
+            $table->unique(['organization_id', 'group_id', 'parent', 'name'], 'unique_tag_index');
+
+            $table->foreign('organization_id')
+                ->references('id')
+                ->on('organizations');
         });
     }
 
