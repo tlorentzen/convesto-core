@@ -19,7 +19,8 @@ class CreateTagsTable extends Migration
             $table->bigInteger('parent_id')->unsigned();
             $table->bigInteger('department_id')->unsigned()->default(0);
             $table->string('name');
-            $table->string('color', 30)->default('#FFFFFF');
+            $table->string('color', 10)->default('#FFFFFF');
+            $table->string('text_color', 10)->default('#000000');
             $table->jsonb('data');
             $table->timestamps();
 
