@@ -39,4 +39,20 @@ abstract class CoreUser extends Authenticatable
     public function gravatar($size=50){
         return 'https://www.gravatar.com/avatar/'.md5( strtolower( trim( $this->email ) ) )."?s=$size&d=mp&r=g";
     }
+
+    public function organizations()
+    {
+        return $this->belongsToMany('App\Organization', 'organization_users', 'user_id', 'organization_id');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany('App\Group', 'group_users', 'user_id', 'group_id');
+    }
+
+    public function resource()
+    {
+        return $this->belongsTo('App\Resource', 'resource_id', 'id');
+    }
+
 }
