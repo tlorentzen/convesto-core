@@ -19,10 +19,9 @@
     },
     "autoload": {
        "psr-4": {
-            "convesto\\core\\": "src"
+            "convesto\\core\\": "src",
             "convesto\\core\\Controllers\\": "src/Http/Controllers/",
-            "convesto\\core\\Models\\": "src/Models/",
-
+            "convesto\\core\\Models\\": "src/Models/"
         }
     },
     "autoload-dev": {
